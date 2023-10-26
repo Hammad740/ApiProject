@@ -15,15 +15,43 @@ app.get('/', (req, res) => {
   res.send('<h1>Hello from Api Project</h1>');
 });
 
+const coursesLearnt=
+[{
+  id:"1",
+  name:"HTML&CSS",
+  price:"$3.5"
+
+},
+{
+  id:"2",
+  name:"JAVASCRIPT",
+  price:"$4"
+
+},
+{
+  id:"3",
+  name:"REACTJS",
+  price:"$4.5"
+
+}
+]
 app.get('/api/v1', (req, res) => {
   const data = {
     name: 'Mohammad Hammad Ansari',
     age: 22,
-    education: 'BTECH',
+    education: 'B-TECH',
     gender: 'M',
   };
   res.json({ data });
 });
+
+app.get('/api/v1/courses',(req,res)=>{
+  res.json({coursesLearnt})
+})
+
+app.get("/api/v1/greeting",(req,res)=>{
+  res.send("<h1>Greeting from the api docs 🙌🤝</h1>")
+})
 
 app.listen(4000, () => {
   console.log(`Server is running on port 4000....`);

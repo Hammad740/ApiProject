@@ -8,20 +8,7 @@ info:
     email: mohammadhammadansari91@gmail.com
     url: 'https://sensational-tartufo-6e38d0.netlify.app/'
 
-# servers:
-#   - url: '{protocol}://localhost:{port}/api/{version}'
-#     description: for local host secure and regular
-#     variables:
-#       version:
-#         enum: -v1
-#           -v2
-#       port:
-#         enum:
-#           - '4000'
-#       protocol:
-#         enum:
-#           - https
-#           - http
+
 
 servers:
   - url: '{protocol}://localhost:{port}/api/{version}'
@@ -40,3 +27,58 @@ servers:
           - https
           - http
         default: http
+
+
+components:
+  securitySchemes:
+    cookieAuth: 
+      type: apiKey
+      in: cookie
+      name: token
+    BearerAuth:
+      type: http
+      scheme: bearer
+
+paths:
+  /courses:
+    get:
+      tags:
+        - Object
+      summary: returns a unique course
+      responses:
+        200: 
+          description: Success
+          content:
+             application/json:
+               schema: 
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  price: 
+                    type: string
+
+        400:
+          description: Bad request
+        500:
+          description: internal server error
+
+  /greeting:
+    get:
+      tags:
+        - String
+      summary: returns a greeting
+      responses:
+        200: 
+          description: Success
+          content:
+             application/json:
+               schema: 
+                type: string
+                example: "hello"
+        400:
+          description: Bad request
+        500:
+          description: internal server error

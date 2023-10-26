@@ -15,6 +15,16 @@ app.get('/', (req, res) => {
   res.send('<h1>Hello from Api Project</h1>');
 });
 
+app.get('/api/v1', (req, res) => {
+  const data = {
+    name: 'Mohammad Hammad Ansari',
+    age: 22,
+    education: 'BTECH',
+    gender: 'M',
+  };
+  res.json({ data });
+});
+
 app.listen(4000, () => {
   console.log(`Server is running on port 4000....`);
 });

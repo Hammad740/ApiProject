@@ -82,3 +82,37 @@ paths:
           description: Bad request
         500:
           description: internal server error
+  /mycourse/{courseId}:
+    get:
+      tags:
+        - Array
+      summary: returns a based on request
+      parameters:
+        - name: courseId
+          in: path
+          required: true
+          default: 1
+          schema:
+            type: string
+      responses:
+        200: 
+          description: Success
+          content:
+             application/json:
+               schema: 
+                type: array
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  price: 
+                    type: string
+
+        400:
+          description: Bad request
+        500:
+          description: internal server error
+
+        
+

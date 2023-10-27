@@ -53,6 +53,11 @@ app.get("/api/v1/greeting",(req,res)=>{
   res.send("<h1>Greeting from the api docs 🙌🤝</h1>")
 })
 
+app.get("/api/v1/mycourse/:courseId",(req,res)=>{
+  const myCourse=coursesLearnt.find((c)=>c.id===req.params.courseId)
+  res.send(myCourse)
+})
+
 app.listen(4000, () => {
   console.log(`Server is running on port 4000....`);
 });
